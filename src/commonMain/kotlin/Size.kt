@@ -1,5 +1,6 @@
 package me.mark.svigak
 
+//define size of the SVG with specific Unit
 class Size(val size: Double, val units: SizeUnit) {
     override fun toString(): String = "$size$units"
 }

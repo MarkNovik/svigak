@@ -1,5 +1,7 @@
 package me.mark.svigak
 
+import me.mark.svigak.Size
+
 interface Element
 
 class Rect : Element {

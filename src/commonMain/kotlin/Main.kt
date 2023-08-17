@@ -1,5 +1,7 @@
 package me.mark.svigak
 
+import me.mark.svigak.Size
+
 class Svg(val width: Size, val height: Size) {
     val children = mutableListOf<Element>()
     override fun toString(): String = buildString {
