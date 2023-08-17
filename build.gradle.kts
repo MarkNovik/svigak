@@ -20,7 +20,7 @@ kotlin {
         }
     }
     js(IR) {
-        browser()
+        //browser()
         nodejs()
     }
     mingwX64("windows")

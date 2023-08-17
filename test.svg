@@ -1,4 +1,5 @@
 <svg width="320.0" height="240.0" xmlns="http://www.w3.org/2000/svg">
-<rect width="100.0%" height="100.0%" fill="maroon" />
-<rect width="40.0%" height="60.0%" fill="fuchsia" />
+<rect x="0.0" y="0.0" width="100.0%" height="100.0%" fill="white" />
+<circle cx="50.0%" cy="50.0%" r="100.0" fill="red" />
+<circle fill="yellow" cx="30.0%" cy="30.0%" r="10.0%" />
 </svg>
