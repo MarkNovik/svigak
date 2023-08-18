@@ -8,13 +8,16 @@ import kotlin.reflect.KProperty
  */
 abstract class Element {
     //Exists for specifying untyped attributes
+    //Typed attributes of child elements override this map
     val attributes: MutableMap<String, String> = mutableMapOf()
     var pathLength: Double? = null
-    var fill: Fill? = null
+    var fill: Color? = null
+    var stroke: Color? = null
 
     protected fun StringBuilder.appendCommon(): StringBuilder {
         appendIfPresent(::pathLength)
         appendIfPresent(::fill)
+        appendIfPresent(::stroke)
         attributes.forEach { (k, v) ->
             append("$k=\"$v\" ")
         }
@@ -26,8 +29,11 @@ abstract class Element {
      */
     abstract override fun toString(): String
 
-    //Silly stuff starts gere
 
+    /**
+     * Returns a delegate-able [ReadWriteProperty] that uses its name as key in [attributes] and stores its value there.
+     * Intended to be used in [elem].
+     */
     fun <THIS, T> attribute(initValue: T, toString: (T) -> String = { it.toString() }) =
         object : ReadWriteProperty<THIS, T> {
             private var value = initValue
@@ -75,3 +81,4 @@ class Circle : Element() {
         appendCommon()
     }
 }
+

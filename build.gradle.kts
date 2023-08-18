@@ -20,20 +20,17 @@ kotlin {
         }
     }
     js(IR) {
-        //browser()
+        browser()
         nodejs()
     }
     mingwX64("windows")
     linuxX64("linux")
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.2.1")
-            }
-        }
+        val commonMain by getting
         val commonTest by getting {
             dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.2.1")
                 implementation(kotlin("test"))
             }
         }

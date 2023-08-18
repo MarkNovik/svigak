@@ -18,11 +18,13 @@ inline fun Svg.circle(build: Circle.() -> Unit) {
     children += Circle().apply(build)
 }
 
+/**
+ * Creates an anonymous [Element] object and exposes it as receiver in [build].
+ * You can define statically typed properties with [Element.attribute].
+ */
 fun Svg.elem(name: String, build: Element.() -> Unit) {
     children += object : Element() {
-        override fun toString(): String = flatTag(name) {
-            appendCommon()
-        }
+        override fun toString(): String = flatTag(name) { appendCommon() }
 
         init {
             apply(build)
@@ -30,6 +32,7 @@ fun Svg.elem(name: String, build: Element.() -> Unit) {
     }
 }
 
+// Allows using custom defined elements with dsl
 inline fun <T : Element> Svg.add(child: T, build: T.() -> Unit) {
     children += child.apply(build)
 }
