@@ -9,35 +9,35 @@ class Path : Element() {
             data += value
         }
 
-    fun moveTo(x: Double, y: Double) {
+    fun moveTo(x: Number, y: Number) {
         data += "M $x $y "
     }
 
-    fun move(dx: Double, dy: Double) {
+    fun move(dx: Number, dy: Number) {
         data += "m $dx $dy "
     }
 
-    fun lineTo(x: Double, y: Double) {
+    fun lineTo(x: Number, y: Number) {
         data += "L $x $y "
     }
 
-    fun line(length: Double, height: Double) {
+    fun line(length: Number, height: Number) {
         data += "l $length $height "
     }
 
-    fun horizontalTo(x: Double) {
+    fun horizontalTo(x: Number) {
         data += "H $x "
     }
 
-    fun horizontal(length: Double) {
+    fun horizontal(length: Number) {
         data += "h $length "
     }
 
-    fun verticalTo(y: Double) {
+    fun verticalTo(y: Number) {
         data += "H $y "
     }
 
-    fun vertical(height: Double) {
+    fun vertical(height: Number) {
         data += "h $height "
     }
 
@@ -46,12 +46,12 @@ class Path : Element() {
     }
 
     fun cubicCurveTo(
-        control1X: Double,
-        control1Y: Double,
-        control2X: Double,
-        control2Y: Double,
-        destX: Double,
-        destY: Double,
+        control1X: Number,
+        control1Y: Number,
+        control2X: Number,
+        control2Y: Number,
+        destX: Number,
+        destY: Number,
         sequentialCurves: (CubicCurve.() -> Unit)? = null
     ) {
         data += "C $control1X $control1Y, $control2X $control2Y, $destX $destY "
@@ -59,12 +59,12 @@ class Path : Element() {
     }
 
     fun cubicCurve(
-        control1DX: Double,
-        control1DY: Double,
-        control2DX: Double,
-        control2DY: Double,
-        destDX: Double,
-        destDY: Double,
+        control1DX: Number,
+        control1DY: Number,
+        control2DX: Number,
+        control2DY: Number,
+        destDX: Number,
+        destDY: Number,
         sequentialCurves: (CubicCurve.() -> Unit)? = null
     ) {
         data += "c $control1DX $control1DY, $control2DX $control2DY, $destDX $destDY "
@@ -72,10 +72,10 @@ class Path : Element() {
     }
 
     fun quadraticCurveTo(
-        controlX: Double,
-        controlY: Double,
-        destX: Double,
-        destY: Double,
+        controlX: Number,
+        controlY: Number,
+        destX: Number,
+        destY: Number,
         sequentialCurves: (QuadraticCurve.() -> Unit)? = null
     ) {
         data += "Q $controlX $controlY, $destX $destY "
@@ -83,10 +83,10 @@ class Path : Element() {
     }
 
     fun quadraticCurve(
-        controlDX: Double,
-        controlDY: Double,
-        destDX: Double,
-        destDY: Double,
+        controlDX: Number,
+        controlDY: Number,
+        destDX: Number,
+        destDY: Number,
         sequentialCurves: (QuadraticCurve.() -> Unit)? = null
     ) {
         data += "q $controlDX $controlDY, $destDX $destDY "
@@ -102,19 +102,19 @@ class Path : Element() {
     class CubicCurve {
         private val data = StringBuilder()
         fun sequential(
-            control2DX: Double,
-            control2DY: Double,
-            destDX: Double,
-            destDY: Double
+            control2DX: Number,
+            control2DY: Number,
+            destDX: Number,
+            destDY: Number
         ) {
             data += "s $control2DX $control2DY, $destDX $destDY "
         }
 
         fun sequentialTo(
-            control2X: Double,
-            control2Y: Double,
-            destX: Double,
-            destY: Double
+            control2X: Number,
+            control2Y: Number,
+            destX: Number,
+            destY: Number
         ) {
             data += "S $control2X $control2Y, $destX $destY "
         }
@@ -125,15 +125,15 @@ class Path : Element() {
     class QuadraticCurve {
         private val data = StringBuilder()
         fun sequential(
-            destDX: Double,
-            destDY: Double
+            destDX: Number,
+            destDY: Number
         ) {
             data += "t $destDX $destDY "
         }
 
         fun sequentialTo(
-            destX: Double,
-            destY: Double
+            destX: Number,
+            destY: Number
         ) {
             data += "T $destX $destY "
         }
