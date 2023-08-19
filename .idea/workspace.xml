@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="Readded js browser target.&#10;kotlinx.io dependency moved to test source.&#10;Added typed Path (without arcs).&#10;Fill renamed to Color, because it is also used for stroke.&#10;Added some documenting comments">
+    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience.">
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/AttributeProperty.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Svg.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Util.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +58,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -161,10 +166,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MainTests.test" />
+        <item itemvalue="Gradle.MainTests.test" />
         <item itemvalue="Gradle.svigak [build]" />
         <item itemvalue="Gradle.MainTests.test" />
         <item itemvalue="Gradle.svigak [allTests]" />
-        <item itemvalue="Gradle.MainTests.test" />
       </list>
     </recent_temporary>
   </component>
@@ -201,13 +206,22 @@
       <option name="project" value="LOCAL" />
       <updated>1692383670589</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience.">
+      <option name="closed" value="true" />
+      <created>1692384792540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692384792540</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ready! Set! Go!" />
     <MESSAGE value="removed js browser target.&#10;added fully typed Rect and Circle.&#10;added function for adding arbitrary tags and attributes.&#10;Size renamed to Measure due to be used not only for size." />
     <MESSAGE value="Readded js browser target.&#10;kotlinx.io dependency moved to test source.&#10;Added typed Path (without arcs).&#10;Fill renamed to Color, because it is also used for stroke.&#10;Added some documenting comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readded js browser target.&#10;kotlinx.io dependency moved to test source.&#10;Added typed Path (without arcs).&#10;Fill renamed to Color, because it is also used for stroke.&#10;Added some documenting comments" />
+    <MESSAGE value="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience." />
   </component>
 </project>

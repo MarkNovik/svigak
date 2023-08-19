@@ -18,7 +18,7 @@ class MainTests {
                 height = 100.pct
                 fill = aqua
             }
-            add(Path()) {
+            path {
                 move(10, 80)
                 cubicCurveTo(
                     control1X = 40, 10,

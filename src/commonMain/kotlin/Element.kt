@@ -2,10 +2,12 @@ package me.mark.svigak
 
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
+import kotlin.reflect.KProperty0
 
 /**
  * Represents inner svg element like Rect, Circle, etc.
  */
+@SvgDsl
 abstract class Element {
     //Exists for specifying untyped attributes
     //Typed attributes of child elements override this map
@@ -22,6 +24,18 @@ abstract class Element {
             append("$k=\"$v\" ")
         }
         return this
+    }
+
+    protected inline fun StringBuilder.appendIfPresent(p: KProperty0<Any?>): StringBuilder {
+        val res = p.get() ?: attributes[p.name]
+        val name = p.name
+        return if (res != null) append("$name=\"$res\" ")
+        else this
+    }
+
+    protected inline fun StringBuilder.appendProperty(p: KProperty0<Any>): StringBuilder {
+        attributes -= p.name
+        return append("${p.name}=\"${p.get()}\" ")
     }
 
     /**
@@ -50,9 +64,10 @@ abstract class Element {
         }
 }
 
+@SvgDsl
 class Rect : Element() {
-    var x: Measure = 0.px
-    var y: Measure = 0.px
+    var x: Measure by attribute(0.px)
+    var y: Measure by attribute(0.px)
     var width: Measure? = null
     var height: Measure? = null
     var rx: Measure? = null
@@ -69,6 +84,7 @@ class Rect : Element() {
     }
 }
 
+@SvgDsl
 class Circle : Element() {
     var cx: Measure = 0.px
     var cy: Measure = 0.px

@@ -1,5 +1,9 @@
 package me.mark.svigak
 
+@DslMarker
+annotation class SvgDsl
+
+@SvgDsl
 class Svg(val width: Measure, val height: Measure) {
     val children = mutableListOf<Element>()
     override fun toString(): String = buildString {
@@ -16,6 +20,10 @@ inline fun Svg.rect(build: Rect.() -> Unit) {
 
 inline fun Svg.circle(build: Circle.() -> Unit) {
     children += Circle().apply(build)
+}
+
+inline fun Svg.path(build: Path.() -> Unit) {
+    children += Path().apply(build)
 }
 
 /**

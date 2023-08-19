@@ -1,5 +1,6 @@
 package me.mark.svigak
 
+@SvgDsl
 class Path : Element() {
     private val data = StringBuilder()
     var d: String
@@ -93,12 +94,14 @@ class Path : Element() {
         if (sequentialCurves != null) data += QuadraticCurve().apply(sequentialCurves).toString()
     }
 
+
+
     override fun toString(): String = flatTag("path") {
         appendProperty(::d)
-
         appendCommon()
     }
 
+    @SvgDsl
     class CubicCurve {
         private val data = StringBuilder()
         fun sequential(
@@ -122,6 +125,7 @@ class Path : Element() {
         override fun toString(): String = data.toString()
     }
 
+    @SvgDsl
     class QuadraticCurve {
         private val data = StringBuilder()
         fun sequential(

@@ -16,14 +16,3 @@ internal fun flatTag(name: String, build: (StringBuilder.() -> Unit)? = null): S
     build?.let { it() }
     append("/>")
 }
-
-internal inline fun StringBuilder.appendIfPresent(p: KProperty0<Any?>): StringBuilder {
-    val res = p.get()
-    val name = p.name
-    return if (res != null) append("$name=\"$res\" ")
-    else this
-}
-
-internal inline fun StringBuilder.appendProperty(p: KProperty0<Any>): StringBuilder {
-    return append("${p.name}=\"${p.get()}\" ")
-}
