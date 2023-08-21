@@ -3,6 +3,8 @@ package me.mark.svigak
 @DslMarker
 annotation class SvgDsl
 
+typealias Attributes = MutableMap<String, Any>
+
 @SvgDsl
 class Svg(val width: Measure, val height: Measure) {
     val children = mutableListOf<Element>()
@@ -13,7 +15,7 @@ class Svg(val width: Measure, val height: Measure) {
     }
 }
 
-fun svg(width: Measure, height: Measure, build: Svg.() -> Unit): Svg = Svg(width, height).apply(build)
+fun svg(width: Measure, height: Measure = width, build: Svg.() -> Unit): Svg = Svg(width, height).apply(build)
 inline fun Svg.rect(build: Rect.() -> Unit) {
     children += Rect().apply(build)
 }

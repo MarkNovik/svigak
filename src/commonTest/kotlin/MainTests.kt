@@ -3,8 +3,7 @@ package me.mark.svigak
 import kotlinx.io.files.Path
 import kotlinx.io.files.sink
 import kotlinx.io.writeString
-import me.mark.svigak.W3CColor.aqua
-import me.mark.svigak.W3CColor.black
+import me.mark.svigak.W3CColor.*
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
@@ -35,6 +34,40 @@ class MainTests {
         }
         Path("test.svg").sink().use {
             it.writeString(svg.toString())
+            it.flush()
+        }
+        assertTrue(true)
+    }
+
+    @Test
+    fun text() {
+        val text = svg(500.px) {
+            rect { // BG
+                width = 100.pct
+                height = 100.pct
+                fill = black
+            }
+            add(
+                child = object : Element() {
+                    var text = ""
+                    override fun toString(): String = buildString {
+                        append("<text ")
+                        appendCommon()
+                        append(">$text</text>")
+                    }
+                }
+            ) {
+                text = "Hello everynyan!"
+                fill = fuchsia
+                stroke = yellow
+                var y by attributes(50.pct)
+                var x by attributes(50.pct)
+                var textAnchor by attributes("middle", "text-anchor")
+                var size by attributes("3em", "font-size")
+            }
+        }
+        Path("text.svg").sink().use {
+            it.writeString(text.toString())
             it.flush()
         }
         assertTrue(true)
