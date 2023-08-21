@@ -7,8 +7,8 @@ import me.mark.svigak.W3CColor.*
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
+@OptIn(ExperimentalStdlibApi::class)
 class MainTests {
-    @OptIn(ExperimentalStdlibApi::class)
     @Test
     fun test() {
         val svg = svg(190.px, 160.px) {
