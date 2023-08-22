@@ -42,6 +42,10 @@ class Path : Element() {
         data += "h $height "
     }
 
+    fun custom(letter: Char, vararg numbers: Number) {
+        data += "$letter ${numbers.asIterable().chunked(2) { it.joinToString(" ") }.joinToString(", ")} "
+    }
+
     fun close() {
         data += "Z "
     }
@@ -94,11 +98,9 @@ class Path : Element() {
         if (sequentialCurves != null) data += QuadraticCurve().apply(sequentialCurves).toString()
     }
 
-
-
-    override fun toString(): String = flatTag("path") {
-        appendProperty(::d)
-        appendCommon()
+    override fun toString(): String = buildFlatTag("path") {
+        attributes["d"] = data.toString()
+        appendAttributes()
     }
 
     @SvgDsl

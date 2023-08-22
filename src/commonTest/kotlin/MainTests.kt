@@ -47,23 +47,15 @@ class MainTests {
                 height = 100.pct
                 fill = black
             }
-            add(
-                child = object : Element() {
-                    var text = ""
-                    override fun toString(): String = buildString {
-                        append("<text ")
-                        appendCommon()
-                        append(">$text</text>")
-                    }
-                }
-            ) {
-                text = "Hello everynyan!"
+            containerTag("text") {
                 fill = fuchsia
                 stroke = yellow
                 var y by attributes(50.pct)
                 var x by attributes(50.pct)
                 var textAnchor by attributes("middle", "text-anchor")
-                var size by attributes("3em", "font-size")
+                var size by attributes(3.em, "font-size")
+
+                content = "Hello everynyan!"
             }
         }
         Path("text.svg").sink().use {
@@ -71,5 +63,28 @@ class MainTests {
             it.flush()
         }
         assertTrue(true)
+    }
+
+    @Test
+    fun use() {
+        val svg = svg(500.px) {
+            rect {
+                width = 100.pct
+                height = 100.pct
+                fill = fuchsia
+            }
+            val c = circle {
+                cy = 50.pct
+                cx = 120.px
+                r = 100.px
+                fill = yellow
+            }
+            use(c) {
+                x = 260.px
+            }
+        }
+        Path("use.svg").sink().use {
+            it.writeString(svg.toString())
+        }
     }
 }

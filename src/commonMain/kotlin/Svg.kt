@@ -3,7 +3,7 @@ package me.mark.svigak
 @DslMarker
 annotation class SvgDsl
 
-typealias Attributes = MutableMap<String, Any>
+typealias Attributes = MutableMap<String, Any?>
 
 @SvgDsl
 class Svg(val width: Measure, val height: Measure) {
@@ -16,33 +16,45 @@ class Svg(val width: Measure, val height: Measure) {
 }
 
 fun svg(width: Measure, height: Measure = width, build: Svg.() -> Unit): Svg = Svg(width, height).apply(build)
-inline fun Svg.rect(build: Rect.() -> Unit) {
-    children += Rect().apply(build)
-}
 
-inline fun Svg.circle(build: Circle.() -> Unit) {
-    children += Circle().apply(build)
-}
-
-inline fun Svg.path(build: Path.() -> Unit) {
-    children += Path().apply(build)
+inline fun Svg.rect(build: Rect.() -> Unit): Rect = Rect().apply(build).also(children::add)
+inline fun Svg.circle(build: Circle.() -> Unit): Circle = Circle().apply(build).also(children::add)
+inline fun Svg.path(build: Path.() -> Unit): Path = Path().apply(build).also(children::add)
+inline fun Svg.use(elem: Element? = null, build: Use.() -> Unit): Use {
+    val use = Use()
+    if (elem != null) use.attributes["href"] = "#${elem.id}"
+    use.build()
+    children += use
+    return use
 }
 
 /**
  * Creates an anonymous [Element] object and exposes it as receiver in [build].
  * You can define statically typed properties with [Element.attribute].
  */
-fun Svg.elem(name: String, build: Element.() -> Unit) {
-    children += object : Element() {
-        override fun toString(): String = flatTag(name) { appendCommon() }
+fun Svg.flatTag(name: String, build: Element.() -> Unit): Element =
+    object : Element() {
+        override fun toString(): String = buildFlatTag(name) { appendAttributes() }
 
         init {
-            apply(build)
+            build()
         }
-    }
-}
+    }.also(children::add)
+
+fun Svg.containerTag(name: String, build: ContainerElement.() -> Unit): ContainerElement =
+    object : ContainerElement() {
+        override fun toString(): String = buildContainerTag(
+            name,
+            props = { appendAttributes() },
+            content = { append(content) }
+        )
+
+        init {
+            build()
+        }
+    }.also(children::add)
+
+
 
 // Allows using custom defined elements with dsl
-inline fun <T : Element> Svg.add(child: T, build: T.() -> Unit) {
-    children += child.apply(build)
-}
+inline fun <T : Element> Svg.add(child: T, build: T.() -> Unit): T = child.apply(build).also(children::add)

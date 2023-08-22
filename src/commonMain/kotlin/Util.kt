@@ -1,7 +1,5 @@
 package me.mark.svigak
 
-import kotlin.reflect.KProperty0
-
 internal operator fun StringBuilder.plusAssign(str: String) {
     append(str)
 }
@@ -11,8 +9,16 @@ internal fun StringBuilder.appendln(obj: Any? = null): StringBuilder {
     return append('\n')
 }
 
-internal fun flatTag(name: String, build: (StringBuilder.() -> Unit)? = null): String = buildString {
+internal fun buildFlatTag(name: String, build: (StringBuilder.() -> Unit)? = null): String = buildString {
     append("<$name ")
     build?.let { it() }
     append("/>")
+}
+
+internal fun buildContainerTag(name: String, props: (StringBuilder.() -> Unit)? = null, content: (StringBuilder.() -> Unit)? = null): String = buildString {
+    append("<$name ")
+    props?.let { it() }
+    append(" >")
+    content?.let { it() }
+    append("</$name>")
 }
