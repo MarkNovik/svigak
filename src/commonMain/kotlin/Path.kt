@@ -3,12 +3,7 @@ package me.mark.svigak
 @SvgDsl
 class Path : Element() {
     private val data = StringBuilder()
-    var d: String
-        get() = data.toString()
-        set(value) {
-            data.clear()
-            data += value
-        }
+    private var d: String by attributes("")
 
     fun moveTo(x: Number, y: Number) {
         data += "M $x $y "
@@ -99,7 +94,7 @@ class Path : Element() {
     }
 
     override fun toString(): String = buildFlatTag("path") {
-        attributes["d"] = data.toString()
+        d = data.toString()
         appendAttributes()
     }
 

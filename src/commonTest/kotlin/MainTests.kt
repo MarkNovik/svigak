@@ -47,7 +47,7 @@ class MainTests {
                 height = 100.pct
                 fill = black
             }
-            containerTag("text") {
+            text {
                 fill = fuchsia
                 stroke = yellow
                 var y by attributes(50.pct)
@@ -85,6 +85,30 @@ class MainTests {
         }
         Path("use.svg").sink().use {
             it.writeString(svg.toString())
+        }
+    }
+
+    @Test
+    fun g() {
+        svg(250.px) {
+            g {
+                fill = green
+                stroke = blue
+
+                rect {
+                    width = 100.px
+                    height = 100.pct
+                }
+                circle {
+                    cx = 50.pct
+                    cy = 50.pct
+                    r = 30.pct
+                }
+            }
+        }.toString().let { svg ->
+            Path("g.svg").sink().use { sink ->
+                sink.writeString(svg)
+            }
         }
     }
 }

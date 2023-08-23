@@ -7,7 +7,7 @@ package me.mark.svigak
 abstract class Element {
     //Exists for specifying untyped attributes
     //Typed attributes of child elements override this map
-    val attributes: Attributes = mutableMapOf()
+    val attributes: Attributes = Attributes()
     var pathLength: Double? by attributes.nullable()
     var fill: Color? by attributes.nullable()
     var stroke: Color? by attributes.nullable()
@@ -15,7 +15,6 @@ abstract class Element {
 
     protected fun StringBuilder.appendAttributes(): StringBuilder {
         attributes
-            .filterValues { it != null }
             .forEach { (k, v) -> append("$k=\"$v\" ") }
         return this
     }
@@ -27,8 +26,14 @@ abstract class Element {
 }
 
 @SvgDsl
-abstract class ContainerElement : Element() {
-    var content = ""
+class Text(initText: String = "") : Element() {
+    var content = initText
+
+    override fun toString(): String = buildContainerTag(
+        "text",
+        props = { appendAttributes() },
+        content = { append(content) }
+    )
 }
 
 @SvgDsl
@@ -53,13 +58,28 @@ class Circle : Element() {
 }
 
 @SvgDsl
-class Use : Element() {
+class Use(href: Element) : Element() {
     var x: Measure by attributes(0.px)
     var y: Measure by attributes(0.px)
     var width: Measure by attributes(0.px)
     var height: Measure by attributes(0.px)
 
-    var href: String? by attributes.nullable()
+    var href: String by attributes("#${href.id}")
 
     override fun toString(): String = buildFlatTag("use") { appendAttributes() }
+}
+
+@SvgDsl
+class G : Element(), ElementContainer {
+    override val children: MutableList<Element> = mutableListOf()
+
+    override fun toString(): String = buildContainerTag(
+        "g",
+        props = {
+            appendAttributes()
+        },
+        content = {
+            append(children.joinToString("\n"))
+        }
+    )
 }
