@@ -13,12 +13,12 @@ import me.mark.svigak.AnimationFill.remove
 import kotlin.time.Duration
 
 @AnimationDsl
-class Animation<T : AnimatableValue>(
+class Animation<T>(
     name: String,
 ) {
     val attributes = Attributes()
 
-    private val attributeName by attributes(name)
+    var attributeName by attributes(name)
 
     var dur: AnimationDuration by attributes.lazy(indefinite)
     var min: ClockValue by attributes.lazy(Duration.ZERO.clock())
