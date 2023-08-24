@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience.">
+    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements.">
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/AnimationTypes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation.svg" beforeDir="false" afterPath="$PROJECT_DIR$/animation.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/g.svg" beforeDir="false" afterPath="$PROJECT_DIR$/g.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Svg.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Svg.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Measure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Measure.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.svg" beforeDir="false" afterPath="$PROJECT_DIR$/test.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/text.svg" beforeDir="false" afterPath="$PROJECT_DIR$/text.svg" afterDir="false" />
@@ -49,6 +52,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -65,20 +73,21 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;notification.kotlin.js.compiler.ignored&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "animation",
+    "ignore.virus.scanning.warn.message": "true",
+    "notification.kotlin.js.compiler.ignored": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.general"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle allTests" />
@@ -106,7 +115,31 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="MainTests.animate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanJvmTest" />
+            <option value=":jvmTest" />
+            <option value="--tests &quot;me.mark.svigak.MainTests.animate&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="MainTests.errors" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -130,10 +163,10 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="MainTests.idTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MainTests.g" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -146,7 +179,7 @@
           <list>
             <option value=":cleanJvmTest" />
             <option value=":jvmTest" />
-            <option value="--tests &quot;me.mark.svigak.MainTests.idTest&quot;" />
+            <option value="--tests &quot;me.mark.svigak.MainTests.g&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -154,31 +187,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="MainTests.use" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanWindowsTest" />
-            <option value=":windowsTest" />
-            <option value="--tests &quot;me.mark.svigak.MainTests.use&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="svigak [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -200,16 +209,16 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.MainTests" />
+        <item itemvalue="Gradle.MainTests.animate" />
+        <item itemvalue="Gradle.MainTests.animate" />
+        <item itemvalue="Gradle.MainTests.g" />
         <item itemvalue="Gradle.MainTests" />
-        <item itemvalue="Gradle.MainTests.errors" />
-        <item itemvalue="Gradle.MainTests.errors" />
-        <item itemvalue="Gradle.MainTests.use" />
       </list>
     </recent_temporary>
   </component>
@@ -254,14 +263,24 @@
       <option name="project" value="LOCAL" />
       <updated>1692384792540</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements.">
+      <option name="closed" value="true" />
+      <created>1692804284577</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692804284577</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Ready! Set! Go!" />
     <MESSAGE value="removed js browser target.&#10;added fully typed Rect and Circle.&#10;added function for adding arbitrary tags and attributes.&#10;Size renamed to Measure due to be used not only for size." />
     <MESSAGE value="Readded js browser target.&#10;kotlinx.io dependency moved to test source.&#10;Added typed Path (without arcs).&#10;Fill renamed to Color, because it is also used for stroke.&#10;Added some documenting comments" />
     <MESSAGE value="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience." />
+    <MESSAGE value="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements." />
+    <option name="LAST_COMMIT_MESSAGE" value="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements." />
   </component>
 </project>

@@ -6,6 +6,7 @@ import kotlinx.io.writeString
 import me.mark.svigak.W3CColor.*
 import kotlin.test.Test
 import kotlin.test.assertTrue
+import kotlin.time.Duration.Companion.seconds
 
 @OptIn(ExperimentalStdlibApi::class)
 class MainTests {
@@ -109,6 +110,39 @@ class MainTests {
             Path("g.svg").sink().use { sink ->
                 sink.writeString(svg)
             }
+        }
+    }
+
+    @Test
+    fun animate() {
+        val svg = svg(250.px, 250.px) {
+            rect {
+                width = 100.pct
+                height = 100.pct
+                fill = white
+            }
+            rect {
+                width = 100.pct
+                height = 100.pct
+                ::rx.animate {
+                    values = listOf(0.px, 50.pct, 0.px)
+                    dur = 5.s
+                    repeatCount = indefinite
+                }
+            }
+            circle {
+                cy = 50.pct
+                r = 20.pct
+                fill = yellow
+                ::cx.animate {
+                    values = listOf(20.pct, 80.pct, 20.pct)
+                    dur = 5.s
+                    repeatCount = indefinite
+                }
+            }
+        }
+        Path("animation.svg").sink().use {
+            it.writeString(svg.toString())
         }
     }
 }

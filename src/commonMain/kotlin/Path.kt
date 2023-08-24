@@ -1,7 +1,7 @@
 package me.mark.svigak
 
 @SvgDsl
-class Path : Element() {
+class Path : Element("path") {
     private val data = StringBuilder()
     private var d: String by attributes("")
 

@@ -1,10 +1,15 @@
+@file:Suppress("unused")
+
 package me.mark.svigak
+
+import kotlin.reflect.KProperty0
 
 /**
  * Represents inner svg element like Rect, Circle, etc.
  */
 @SvgDsl
-abstract class Element {
+@AnimationDsl
+abstract class Element(private val name: String) {
     //Exists for specifying untyped attributes
     //Typed attributes of child elements override this map
     val attributes: Attributes = Attributes()
@@ -12,6 +17,12 @@ abstract class Element {
     var fill: Color? by attributes.nullable()
     var stroke: Color? by attributes.nullable()
     val id by attributes(super.hashCode())
+    private val animations: MutableList<Animation<*>> = mutableListOf()
+
+    fun <T : AnimatableValue> KProperty0<T?>.animate(animation: Animation<T>.() -> Unit) {
+        val x = Animation<T>(name).apply(animation)
+        animations.add(x)
+    }
 
     protected fun StringBuilder.appendAttributes(): StringBuilder {
         attributes
@@ -19,14 +30,28 @@ abstract class Element {
         return this
     }
 
+    protected fun StringBuilder.appendAnimations(): StringBuilder {
+        animations.forEach { appendln(it) }
+        return this
+    }
+
     /**
      * @return String represenration of a tag. Must be a valid SVG
      */
-    abstract override fun toString(): String
+    override fun toString(): String = when {
+        animations.isEmpty() -> buildFlatTag(name) { appendAttributes() }
+        else -> buildContainerTag(
+            name,
+            props = { appendAttributes() },
+            content = {
+                appendAnimations()
+            }
+        )
+    }
 }
 
 @SvgDsl
-class Text(initText: String = "") : Element() {
+class Text(initText: String = "") : Element("text") {
     var content = initText
 
     override fun toString(): String = buildContainerTag(
@@ -37,40 +62,34 @@ class Text(initText: String = "") : Element() {
 }
 
 @SvgDsl
-class Rect : Element() {
-    var x: Measure by attributes(0.px)
-    var y: Measure by attributes(0.px)
+class Rect : Element("rect") {
+    var x: Measure by attributes.lazy(0.px)
+    var y: Measure by attributes.lazy(0.px)
     var width: Measure? by attributes.nullable()
     var height: Measure? by attributes.nullable()
     var rx: Measure? by attributes.nullable()
     var ry: Measure? by attributes.nullable()
-
-    override fun toString(): String = buildFlatTag("rect") { appendAttributes() }
 }
 
 @SvgDsl
-class Circle : Element() {
-    var cx: Measure by attributes(0.px)
-    var cy: Measure by attributes(0.px)
-    var r: Measure by attributes(0.px)
-
-    override fun toString(): String = buildFlatTag("circle") { appendAttributes() }
+class Circle : Element("circle") {
+    var cx: Measure by attributes.lazy(0.px)
+    var cy: Measure by attributes.lazy(0.px)
+    var r: Measure by attributes.lazy(0.px)
 }
 
 @SvgDsl
-class Use(href: Element) : Element() {
-    var x: Measure by attributes(0.px)
-    var y: Measure by attributes(0.px)
-    var width: Measure by attributes(0.px)
-    var height: Measure by attributes(0.px)
+class Use(href: Element) : Element("use") {
+    var x: Measure by attributes.lazy(0.px)
+    var y: Measure by attributes.lazy(0.px)
+    var width: Measure by attributes.lazy(0.px)
+    var height: Measure by attributes.lazy(0.px)
 
     var href: String by attributes("#${href.id}")
-
-    override fun toString(): String = buildFlatTag("use") { appendAttributes() }
 }
 
 @SvgDsl
-class G : Element(), ElementContainer {
+class G : Element("g"), ElementContainer {
     override val children: MutableList<Element> = mutableListOf()
 
     override fun toString(): String = buildContainerTag(
