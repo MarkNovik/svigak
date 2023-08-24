@@ -6,7 +6,6 @@ import kotlinx.io.writeString
 import me.mark.svigak.W3CColor.*
 import kotlin.test.Test
 import kotlin.test.assertTrue
-import kotlin.time.Duration.Companion.seconds
 
 @OptIn(ExperimentalStdlibApi::class)
 class MainTests {
@@ -33,7 +32,7 @@ class MainTests {
                 fill = Custom("transparent")
             }
         }
-        Path("test.svg").sink().use {
+        Path("svg/test.svg").sink().use {
             it.writeString(svg.toString())
             it.flush()
         }
@@ -59,7 +58,7 @@ class MainTests {
                 content = "Hello everynyan!"
             }
         }
-        Path("text.svg").sink().use {
+        Path("svg/text.svg").sink().use {
             it.writeString(text.toString())
             it.flush()
         }
@@ -84,7 +83,7 @@ class MainTests {
                 x = 260.px
             }
         }
-        Path("use.svg").sink().use {
+        Path("svg/use.svg").sink().use {
             it.writeString(svg.toString())
         }
     }
@@ -107,7 +106,7 @@ class MainTests {
                 }
             }
         }.toString().let { svg ->
-            Path("g.svg").sink().use { sink ->
+            Path("svg/g.svg").sink().use { sink ->
                 sink.writeString(svg)
             }
         }
@@ -141,7 +140,7 @@ class MainTests {
                 }
             }
         }
-        Path("animation.svg").sink().use {
+        Path("svg/animation.svg").sink().use {
             it.writeString(svg.toString())
         }
     }

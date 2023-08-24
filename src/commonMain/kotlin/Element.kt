@@ -19,10 +19,12 @@ abstract class Element(private val name: String) {
     val id by attributes(super.hashCode())
     private val animations: MutableList<Animation<*>> = mutableListOf()
 
-    fun <T : AnimatableValue> KProperty0<T?>.animate(animation: Animation<T>.() -> Unit) {
-        val x = Animation<T>(name).apply(animation)
+    fun <T> animate(attribute: String, animation: Animation<T>.() -> Unit) {
+        val x = Animation<T>(attribute).apply(animation)
         animations.add(x)
     }
+
+    fun <T> KProperty0<T?>.animate(animation: Animation<T>.() -> Unit) = animate(this@animate.name, animation)
 
     protected fun StringBuilder.appendAttributes(): StringBuilder {
         attributes
@@ -30,7 +32,7 @@ abstract class Element(private val name: String) {
         return this
     }
 
-    protected fun StringBuilder.appendAnimations(): StringBuilder {
+    private fun StringBuilder.appendAnimations(): StringBuilder {
         animations.forEach { appendln(it) }
         return this
     }
@@ -44,6 +46,7 @@ abstract class Element(private val name: String) {
             name,
             props = { appendAttributes() },
             content = {
+                appendln()
                 appendAnimations()
             }
         )
@@ -98,7 +101,8 @@ class G : Element("g"), ElementContainer {
             appendAttributes()
         },
         content = {
-            append(children.joinToString("\n"))
+            appendln()
+            appendln(children.joinToString("\n"))
         }
     )
 }

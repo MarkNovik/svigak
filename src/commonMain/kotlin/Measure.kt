@@ -1,7 +1,7 @@
 package me.mark.svigak
 
-class Measure(val length: Number, val unit: MeasureUnit): AnimatableValue {
-    override fun toString(): String = "$length$unit"
+class Measure(val value: Number, val unit: MeasureUnit) {
+    override fun toString(): String = "$value$unit"
 }
 
 enum class MeasureUnit(private val str: String) {

@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements.">
-      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/AnimationTypes.kt" afterDir="false" />
+    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 🎉">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animation.svg" beforeDir="false" afterPath="$PROJECT_DIR$/animation.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/g.svg" beforeDir="false" afterPath="$PROJECT_DIR$/g.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/AnimationTypes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/AnimationTypes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Measure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Measure.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.svg" beforeDir="false" afterPath="$PROJECT_DIR$/test.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.svg" beforeDir="false" afterPath="$PROJECT_DIR$/text.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/use.svg" beforeDir="false" afterPath="$PROJECT_DIR$/use.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692804284577</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 🎉">
+      <option name="closed" value="true" />
+      <created>1692901284808</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692901284808</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -281,6 +283,7 @@
     <MESSAGE value="Readded js browser target.&#10;kotlinx.io dependency moved to test source.&#10;Added typed Path (without arcs).&#10;Fill renamed to Color, because it is also used for stroke.&#10;Added some documenting comments" />
     <MESSAGE value="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience." />
     <MESSAGE value="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements." />
-    <option name="LAST_COMMIT_MESSAGE" value="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements." />
+    <MESSAGE value="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 " />
+    <option name="LAST_COMMIT_MESSAGE" value="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 " />
   </component>
 </project>

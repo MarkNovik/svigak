@@ -1,4 +1,4 @@
-@file:Suppress("ClassName", "EnumEntryName")
+@file:Suppress("ClassName", "EnumEntryName", "unused")
 
 package me.mark.svigak
 
@@ -8,8 +8,6 @@ import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
-
-interface AnimatableValue
 
 class AnimationControlPoint(
     val x1: Double,

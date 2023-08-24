@@ -1,0 +1,9 @@
+<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+<rect id="1889057031" width="100%" height="100%" fill="white" />
+<rect id="391135083" width="100%" height="100%"  >
+<animate attributeName="rx" dur="00:05" repeatCount="indefinite" values="0;50%;0" />
+</rect>
+<circle id="431506362" cy="50%" r="20%" fill="yellow"  >
+<animate attributeName="cx" dur="00:05" repeatCount="indefinite" values="20%;80%;20%" />
+</circle>
+</svg>
