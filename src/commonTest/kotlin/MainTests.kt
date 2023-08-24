@@ -111,4 +111,28 @@ class MainTests {
             }
         }
     }
+
+    @Test
+    fun animate() {
+        val svg = svg(200.px, 100.px) {
+            rect {
+                width = 100.pct
+                height = 100.pct
+                fill = white
+            }
+            circle {
+                cy = 50.pct
+                fill = yellow
+                r = 40.px
+                (::cx).animate { // this: Animation<Measure>
+                    dur = "3s"
+                    values = mutableListOf(80.px, 120.px, 80.px)
+                    val repeatCount by attributes("indefinite")
+                }
+            }
+        }
+        Path("animation.svg").sink().use {
+            it.writeString(svg.toString())
+        }
+    }
 }

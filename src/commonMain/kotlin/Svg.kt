@@ -3,6 +3,9 @@ package me.mark.svigak
 @DslMarker
 annotation class SvgDsl
 
+@DslMarker
+annotation class AnimationDsl
+
 interface ElementContainer {
     val children: MutableList<Element>
 }
@@ -37,7 +40,7 @@ fun ElementContainer.text(text: String = "", build: Text.() -> Unit): Text = Tex
  * You can define statically typed properties with [Attributes.invoke] or [Attributes.nullable].
  */
 fun ElementContainer.flatTag(name: String, build: Element.() -> Unit): Element =
-    object : Element() {
+    object : Element(name) {
         override fun toString(): String = buildFlatTag(name) { appendAttributes() }
 
         init {
