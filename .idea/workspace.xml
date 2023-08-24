@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements.">
-      <change afterPath="$PROJECT_DIR$/animation.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/AnimationTypes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation.svg" beforeDir="false" afterPath="$PROJECT_DIR$/animation.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/g.svg" beforeDir="false" afterPath="$PROJECT_DIR$/g.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Animation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Attributes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Element.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Path.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Svg.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Svg.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Measure.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Measure.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonTest/kotlin/MainTests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.svg" beforeDir="false" afterPath="$PROJECT_DIR$/test.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.svg" beforeDir="false" afterPath="$PROJECT_DIR$/text.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use.svg" beforeDir="false" afterPath="$PROJECT_DIR$/use.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +46,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -69,7 +79,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "animation",
     "ignore.virus.scanning.warn.message": "true",
     "notification.kotlin.js.compiler.ignored": "true",
     "project.structure.last.edited": "Modules",
@@ -83,7 +93,7 @@
       <command value="gradle allTests" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.MainTests.animate">
+  <component name="RunManager" selected="Gradle.MainTests">
     <configuration name="MainTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -105,7 +115,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="MainTests.animate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -129,7 +139,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="MainTests.errors" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -153,7 +163,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="MainTests.g" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -177,7 +187,7 @@
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration name="svigak [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -199,16 +209,16 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MainTests" />
+        <item itemvalue="Gradle.MainTests.animate" />
         <item itemvalue="Gradle.MainTests.animate" />
         <item itemvalue="Gradle.MainTests.g" />
         <item itemvalue="Gradle.MainTests" />
-        <item itemvalue="Gradle.MainTests" />
-        <item itemvalue="Gradle.MainTests.errors" />
       </list>
     </recent_temporary>
   </component>

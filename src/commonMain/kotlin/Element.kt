@@ -1,6 +1,7 @@
+@file:Suppress("unused")
+
 package me.mark.svigak
 
-import kotlin.reflect.KMutableProperty0
 import kotlin.reflect.KProperty0
 
 /**
@@ -16,11 +17,11 @@ abstract class Element(private val name: String) {
     var fill: Color? by attributes.nullable()
     var stroke: Color? by attributes.nullable()
     val id by attributes(super.hashCode())
-    private val animations: MutableList<String> = mutableListOf() // TODO: It's only for prototyping purposes, i swear
+    private val animations: MutableList<Animation<*>> = mutableListOf()
 
-    fun <T: Any> KProperty0<T>.animate(animation: Animation<T>.() -> Unit) {
+    fun <T : AnimatableValue> KProperty0<T?>.animate(animation: Animation<T>.() -> Unit) {
         val x = Animation<T>(name).apply(animation)
-        animations.add(x.toString())
+        animations.add(x)
     }
 
     protected fun StringBuilder.appendAttributes(): StringBuilder {
@@ -62,8 +63,8 @@ class Text(initText: String = "") : Element("text") {
 
 @SvgDsl
 class Rect : Element("rect") {
-    var x: Measure by attributes(0.px)
-    var y: Measure by attributes(0.px)
+    var x: Measure by attributes.lazy(0.px)
+    var y: Measure by attributes.lazy(0.px)
     var width: Measure? by attributes.nullable()
     var height: Measure? by attributes.nullable()
     var rx: Measure? by attributes.nullable()
@@ -72,17 +73,17 @@ class Rect : Element("rect") {
 
 @SvgDsl
 class Circle : Element("circle") {
-    var cx: Measure by attributes(0.px)
-    var cy: Measure by attributes(0.px)
-    var r: Measure by attributes(0.px)
+    var cx: Measure by attributes.lazy(0.px)
+    var cy: Measure by attributes.lazy(0.px)
+    var r: Measure by attributes.lazy(0.px)
 }
 
 @SvgDsl
 class Use(href: Element) : Element("use") {
-    var x: Measure by attributes(0.px)
-    var y: Measure by attributes(0.px)
-    var width: Measure by attributes(0.px)
-    var height: Measure by attributes(0.px)
+    var x: Measure by attributes.lazy(0.px)
+    var y: Measure by attributes.lazy(0.px)
+    var width: Measure by attributes.lazy(0.px)
+    var height: Measure by attributes.lazy(0.px)
 
     var href: String by attributes("#${href.id}")
 }

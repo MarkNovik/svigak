@@ -1,6 +1,6 @@
 package me.mark.svigak
 
-class Measure(val length: Number, val unit: MeasureUnit) {
+class Measure(val length: Number, val unit: MeasureUnit): AnimatableValue {
     override fun toString(): String = "$length$unit"
 }
 

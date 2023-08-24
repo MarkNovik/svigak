@@ -1,5 +1,7 @@
-<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
-<rect id="1042306518" x="0" y="0" width="100%" height="100%" fill="white" />
-<circle id="1824837049" cx="0" cy="50%" r="40" fill="yellow"  ><animate attributeName="cx" dur="3s" repeatCount="indefinite" values="80;120;80" />
+<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+<rect id="1346343363" width="100%" height="100%" fill="white" />
+<rect id="1003292107" width="100%" height="100%"  ><animate attributeName="rx" dur="00:05" repeatCount="indefinite" values="0;50%;0" />
+</rect>
+<circle id="1693226694" cy="50%" r="20%" fill="yellow"  ><animate attributeName="cx" dur="00:05" repeatCount="indefinite" values="20%;80%;20%" />
 </circle>
 </svg>
