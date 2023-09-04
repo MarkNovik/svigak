@@ -57,7 +57,7 @@ data object indefinite : AnimationDuration, AnimationRepeatCount
 
 sealed interface AnimationRepeatCount {
     @JvmInline
-    value class Times(private val n: Number) {
+    value class Times(private val n: Number): AnimationRepeatCount {
         override fun toString(): String = n.toString()
     }
 }

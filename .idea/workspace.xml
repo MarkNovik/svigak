@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 🎉">
+    <list default="true" id="28e8a41e-aa1f-47ac-9817-edef5d6f8ea8" name="Changes" comment="Added all css color names and RGBA class for representing any color in type-safe way">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commonMain/kotlin/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/commonMain/kotlin/Color.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692901284808</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added all css color names and RGBA class for representing any color in type-safe way">
+      <option name="closed" value="true" />
+      <created>1693143974961</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1693143974961</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -287,6 +292,7 @@
     <MESSAGE value="Added Custom color for bypassing typing.&#10;Changed type in many functions and Measure from Double to Number for convenience." />
     <MESSAGE value="attributes now its own type to prevent runtime errors.&#10;Introduced Use and G elements." />
     <MESSAGE value="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 " />
-    <option name="LAST_COMMIT_MESSAGE" value="Added fully typed animation for attributes.&#10;Added lazy attribute with initial value: It only updates map after reassignment.&#10; Library version is changed to 0.0.2 " />
+    <MESSAGE value="Added all css color names and RGBA class for representing any color in type-safe way" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added all css color names and RGBA class for representing any color in type-safe way" />
   </component>
 </project>
